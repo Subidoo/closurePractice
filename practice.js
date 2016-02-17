@@ -72,13 +72,25 @@ var count = makeCounter();
   Once completed, add a second argument that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
-function accept(first, N) {
+function accept(f, N) {
+  var count = 0; 
   return function() {
-    
+    if(count < N) {
+      f();
+      count++;
+    } else {  
+    alert('STAHHP');
+    }
   }
-}
+  }
+var returnedF = accept(function() {
+  alert('first');
+}, 5)
+returnedF();
+returnedF();
 
-var isNew = accept();
+
+
 
 
 
